@@ -291,21 +291,21 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-swiss-black text-swiss-white font-mono flex flex-col items-center selection:bg-swiss-red selection:text-white">
+    <div className="min-h-screen bg-swiss-white text-swiss-black font-mono flex flex-col items-center selection:bg-swiss-red selection:text-white">
       {/* Header */}
-      <header className="w-full p-4 border-b border-swiss-white flex items-center justify-between sticky top-0 z-30 bg-swiss-black/80 backdrop-blur-sm">
+      <header className="w-full p-4 border-b border-swiss-black flex items-center justify-between sticky top-0 z-30 bg-swiss-white/80 backdrop-blur-sm">
         <h1 className="text-lg font-bold flex items-center gap-2 uppercase tracking-widest">
           <Scissors className="w-5 h-5 text-swiss-red" />
           <span className="hidden sm:inline">Photo Docs</span>
         </h1>
         <div className="flex items-center gap-2">
           {step !== 'upload' && step !== 'crop' && (
-            <button onClick={() => step === 'print' ? setStep('result') : setStep('crop')} className="text-xs text-swiss-white hover:text-swiss-red px-2 py-1 flex items-center gap-1 uppercase tracking-wider border border-transparent hover:border-swiss-red transition-colors">
+            <button onClick={() => step === 'print' ? setStep('result') : setStep('crop')} className="text-xs text-swiss-black hover:text-swiss-red px-2 py-1 flex items-center gap-1 uppercase tracking-wider border border-transparent hover:border-swiss-red transition-colors">
               <ArrowLeft size={14}/> Back
             </button>
           )}
           {step === 'crop' && imageSrc && (
-             <button onClick={() => { setImageSrc(null); setStep('upload'); }} className="text-xs text-swiss-white hover:text-swiss-red px-2 py-1 uppercase tracking-wider border border-transparent hover:border-swiss-red transition-colors">Reset</button>
+             <button onClick={() => { setImageSrc(null); setStep('upload'); }} className="text-xs text-swiss-black hover:text-swiss-red px-2 py-1 uppercase tracking-wider border border-transparent hover:border-swiss-red transition-colors">Reset</button>
           )}
         </div>
       </header>
@@ -314,15 +314,15 @@ export default function App() {
         {step === 'upload' && (
           <div className="flex-1 flex flex-col items-center justify-center border-2 border-dashed border-swiss-gray p-8 my-auto animate-in fade-in zoom-in-95 relative overflow-hidden group">
             {/* Corner Markers for Decoration */}
-            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-swiss-white"></div>
-            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-swiss-white"></div>
-            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-swiss-white"></div>
-            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-swiss-white"></div>
+            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-swiss-black"></div>
+            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-swiss-black"></div>
+            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-swiss-black"></div>
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-swiss-black"></div>
 
             <Upload className="w-16 h-16 text-swiss-gray mb-6 group-hover:text-swiss-red transition-colors" strokeWidth={1} />
             <h2 className="text-xl font-bold uppercase tracking-widest mb-2">Upload Photo</h2>
             <p className="text-swiss-gray text-center mb-8 max-w-xs text-xs uppercase tracking-wide">Select image to process</p>
-            <label className="bg-swiss-white text-swiss-black hover:bg-swiss-red hover:text-swiss-white font-bold py-4 px-8 cursor-pointer transition-all shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] flex items-center gap-2 uppercase tracking-widest text-sm border border-swiss-white">
+            <label className="bg-swiss-black text-swiss-white hover:bg-swiss-red hover:text-swiss-black font-bold py-4 px-8 cursor-pointer transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] flex items-center gap-2 uppercase tracking-widest text-sm border border-swiss-black">
               <Upload size={18}/> Select File
               <input type="file" accept="image/*" onChange={handleFileChange} className="hidden" />
             </label>
@@ -331,23 +331,23 @@ export default function App() {
 
         {step === 'crop' && (
           <>
-            <div className="bg-swiss-black p-4 border border-swiss-gray shadow-none relative">
-              <div className="absolute top-0 left-2 -translate-y-1/2 bg-swiss-black px-1 text-[10px] text-swiss-red uppercase font-bold tracking-widest">Dimensions (mm)</div>
+            <div className="bg-swiss-white p-4 border border-swiss-gray shadow-none relative">
+              <div className="absolute top-0 left-2 -translate-y-1/2 bg-swiss-white px-1 text-[10px] text-swiss-red uppercase font-bold tracking-widest">Dimensions (mm)</div>
               <div className="flex gap-4 items-end mt-2">
                 <div className="flex-1">
                   <label className="text-[10px] uppercase text-swiss-gray font-bold mb-1 block">Width</label>
-                  <input type="number" value={widthMM} onChange={handleDimChange(setWidthMM)} className="w-full bg-transparent border-b border-swiss-gray focus:border-swiss-red py-2 text-xl font-mono text-swiss-white outline-none transition-colors rounded-none" placeholder="35"/>
+                  <input type="number" value={widthMM} onChange={handleDimChange(setWidthMM)} className="w-full bg-transparent border-b border-swiss-gray focus:border-swiss-red py-2 text-xl font-mono text-swiss-black outline-none transition-colors rounded-none" placeholder="35"/>
                 </div>
                 <div className="flex-1">
                   <label className="text-[10px] uppercase text-swiss-gray font-bold mb-1 block">Height</label>
-                  <input type="number" value={heightMM} onChange={handleDimChange(setHeightMM)} className="w-full bg-transparent border-b border-swiss-gray focus:border-swiss-red py-2 text-xl font-mono text-swiss-white outline-none transition-colors rounded-none" placeholder="45"/>
+                  <input type="number" value={heightMM} onChange={handleDimChange(setHeightMM)} className="w-full bg-transparent border-b border-swiss-gray focus:border-swiss-red py-2 text-xl font-mono text-swiss-black outline-none transition-colors rounded-none" placeholder="45"/>
                 </div>
               </div>
             </div>
 
             <div className="flex-1 flex items-center justify-center min-h-0 bg-swiss-gray/10 overflow-hidden border border-swiss-gray relative">
                 {/* Tech Overlays */}
-                <div className="absolute top-2 left-2 z-20 bg-swiss-black/80 backdrop-blur border border-swiss-white/20 px-2 py-1 text-[10px] text-swiss-white uppercase tracking-wider pointer-events-none">
+                <div className="absolute top-2 left-2 z-20 bg-swiss-white/80 backdrop-blur border border-swiss-black/20 px-2 py-1 text-[10px] text-swiss-black uppercase tracking-wider pointer-events-none">
                   PAN MODE
                 </div>
                 <div className="absolute bottom-2 right-2 z-20 text-[10px] text-swiss-gray uppercase tracking-widest pointer-events-none">
@@ -357,17 +357,17 @@ export default function App() {
                 <div
                     ref={containerRef}
                     style={getPreviewContainerStyle()}
-                    className="relative overflow-hidden bg-swiss-black cursor-move touch-none border border-swiss-white shadow-2xl"
+                    className="relative overflow-hidden bg-swiss-white cursor-move touch-none border border-swiss-black shadow-2xl"
                     {...pointerEvents}
                 >
                     {/* Сетка */}
-                    <div className="absolute inset-0 z-20 pointer-events-none opacity-50 border border-swiss-white/50">
-                        <div className="w-full h-1/3 border-b border-dashed border-swiss-white/30"></div>
-                        <div className="w-full h-1/3 border-b border-dashed border-swiss-white/30"></div>
+                    <div className="absolute inset-0 z-20 pointer-events-none opacity-50 border border-swiss-black/50">
+                        <div className="w-full h-1/3 border-b border-dashed border-swiss-black/30"></div>
+                        <div className="w-full h-1/3 border-b border-dashed border-swiss-black/30"></div>
                     </div>
                     <div className="absolute inset-0 z-20 pointer-events-none opacity-50 flex">
-                        <div className="h-full w-1/3 border-r border-dashed border-swiss-white/30"></div>
-                        <div className="h-full w-1/3 border-r border-dashed border-swiss-white/30"></div>
+                        <div className="h-full w-1/3 border-r border-dashed border-swiss-black/30"></div>
+                        <div className="h-full w-1/3 border-r border-dashed border-swiss-black/30"></div>
                     </div>
 
                     {/* Center Crosshair */}
@@ -388,7 +388,7 @@ export default function App() {
                 </div>
             </div>
 
-            <div className="bg-swiss-black p-5 border-t border-swiss-gray space-y-6">
+            <div className="bg-swiss-white p-5 border-t border-swiss-gray space-y-6">
               <div className="space-y-4">
                 <div className="flex justify-between text-xs font-bold text-swiss-gray uppercase tracking-widest border-b border-swiss-gray/30 pb-2">
                   <span className="flex items-center gap-1"><ZoomIn size={12}/> Zoom Level</span>
@@ -396,13 +396,13 @@ export default function App() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <button onClick={zoomOut} className="w-8 h-8 flex items-center justify-center border border-swiss-white hover:bg-swiss-white hover:text-swiss-black transition-all active:translate-y-1"><Minus size={14}/></button>
+                    <button onClick={zoomOut} className="w-8 h-8 flex items-center justify-center border border-swiss-black hover:bg-swiss-black hover:text-swiss-white transition-all active:translate-y-1"><Minus size={14}/></button>
                     <input type="range" min={MIN_ZOOM} max={MAX_ZOOM} step={ZOOM_STEP} value={zoom} onChange={handleZoomChange} className="flex-1 h-[2px] bg-swiss-gray appearance-none cursor-pointer accent-swiss-red"/>
-                    <button onClick={zoomIn} className="w-8 h-8 flex items-center justify-center border border-swiss-white hover:bg-swiss-white hover:text-swiss-black transition-all active:translate-y-1"><Plus size={14}/></button>
+                    <button onClick={zoomIn} className="w-8 h-8 flex items-center justify-center border border-swiss-black hover:bg-swiss-black hover:text-swiss-white transition-all active:translate-y-1"><Plus size={14}/></button>
                 </div>
               </div>
 
-              <button onClick={generateSingleImage} disabled={isProcessing} className="w-full py-4 bg-swiss-white text-swiss-black hover:bg-swiss-red hover:text-swiss-white disabled:bg-swiss-gray disabled:text-swiss-black/50 font-bold uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-3 border border-swiss-white active:translate-y-[2px]">
+              <button onClick={generateSingleImage} disabled={isProcessing} className="w-full py-4 bg-swiss-black text-swiss-white hover:bg-swiss-red hover:text-swiss-black disabled:bg-swiss-gray disabled:text-swiss-white/50 font-bold uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-3 border border-swiss-black active:translate-y-[2px]">
                 {isProcessing ? 'Processing...' : 'Generate ->'}
               </button>
             </div>
@@ -411,14 +411,14 @@ export default function App() {
 
         {step === 'result' && croppedImage && (
            <div className="flex flex-col items-center gap-8 animate-in slide-in-from-right duration-300 py-4">
-             <div className="bg-swiss-white p-2 border border-swiss-white shadow-[8px_8px_0px_0px_rgba(26,26,26,1)]">
+             <div className="bg-swiss-black p-2 border border-swiss-black shadow-[8px_8px_0px_0px_rgba(26,26,26,1)]">
                 <img src={croppedImage} alt="Single" className="max-h-[35vh] grayscale-[0.1]" />
              </div>
              <div className="w-full space-y-4">
-               <button onClick={() => setStep('print')} className="w-full py-4 bg-swiss-white text-swiss-black hover:bg-swiss-red hover:text-swiss-white font-bold uppercase tracking-[0.2em] border border-swiss-white shadow-lg flex items-center justify-center gap-2 active:translate-y-1 transition-all">
+               <button onClick={() => setStep('print')} className="w-full py-4 bg-swiss-black text-swiss-white hover:bg-swiss-red hover:text-swiss-black font-bold uppercase tracking-[0.2em] border border-swiss-black shadow-lg flex items-center justify-center gap-2 active:translate-y-1 transition-all">
                  <LayoutGrid size={18} /> Prepare Print Sheet
                </button>
-               <button onClick={() => handleDownload(croppedImage, `photo-${widthMM}x${heightMM}.jpg`)} className="w-full py-4 bg-transparent text-swiss-white hover:bg-swiss-white hover:text-swiss-black font-medium border border-swiss-white uppercase tracking-widest flex items-center justify-center gap-2 active:translate-y-1 transition-all">
+               <button onClick={() => handleDownload(croppedImage, `photo-${widthMM}x${heightMM}.jpg`)} className="w-full py-4 bg-transparent text-swiss-black hover:bg-swiss-black hover:text-swiss-white font-medium border border-swiss-black uppercase tracking-widest flex items-center justify-center gap-2 active:translate-y-1 transition-all">
                  <Share size={18} /> Download Single
                </button>
              </div>
@@ -427,37 +427,37 @@ export default function App() {
 
         {step === 'print' && (
           <div className="flex flex-col gap-6 animate-in slide-in-from-right duration-300 pb-20">
-            <div className="bg-swiss-black p-4 border border-swiss-gray space-y-6 relative">
-               <div className="absolute top-0 left-4 -translate-y-1/2 bg-swiss-black px-2 text-xs text-swiss-red font-bold uppercase tracking-widest border border-swiss-gray">Print Settings</div>
+            <div className="bg-swiss-white p-4 border border-swiss-gray space-y-6 relative">
+               <div className="absolute top-0 left-4 -translate-y-1/2 bg-swiss-white px-2 text-xs text-swiss-red font-bold uppercase tracking-widest border border-swiss-gray">Print Settings</div>
 
                <div className="flex bg-swiss-gray/20 p-1 border border-swiss-gray/50">
                  {['A4', '10x15', 'A6'].map(p => (
-                   <button key={p} onClick={() => handlePaperPreset(p)} className={`flex-1 py-1.5 text-xs uppercase tracking-wider transition-colors ${paperSize === p ? 'bg-swiss-white text-swiss-black font-bold' : 'text-swiss-gray hover:text-swiss-white'}`}>{p}</button>
+                   <button key={p} onClick={() => handlePaperPreset(p)} className={`flex-1 py-1.5 text-xs uppercase tracking-wider transition-colors ${paperSize === p ? 'bg-swiss-black text-swiss-white font-bold' : 'text-swiss-gray hover:text-swiss-black'}`}>{p}</button>
                  ))}
-                 <button onClick={() => setPaperSize('Custom')} className={`flex-1 py-1.5 text-xs uppercase tracking-wider transition-colors ${paperSize === 'Custom' ? 'bg-swiss-white text-swiss-black font-bold' : 'text-swiss-gray hover:text-swiss-white'}`}>Custom</button>
+                 <button onClick={() => setPaperSize('Custom')} className={`flex-1 py-1.5 text-xs uppercase tracking-wider transition-colors ${paperSize === 'Custom' ? 'bg-swiss-black text-swiss-white font-bold' : 'text-swiss-gray hover:text-swiss-black'}`}>Custom</button>
                </div>
 
                <div className="grid grid-cols-2 gap-6">
-                  <div><label className="text-[10px] text-swiss-gray uppercase font-bold block mb-1">Margin (mm)</label><input type="number" value={pageMargin} onChange={handleDimChange(setPageMargin)} className="w-full bg-transparent border-b border-swiss-gray focus:border-swiss-red rounded-none px-2 py-1.5 text-swiss-white font-mono outline-none transition-colors" /></div>
-                  <div><label className="text-[10px] text-swiss-gray uppercase font-bold block mb-1">Gap (mm)</label><input type="number" value={photoGap} onChange={handleDimChange(setPhotoGap)} className="w-full bg-transparent border-b border-swiss-gray focus:border-swiss-red rounded-none px-2 py-1.5 text-swiss-white font-mono outline-none transition-colors" /></div>
+                  <div><label className="text-[10px] text-swiss-gray uppercase font-bold block mb-1">Margin (mm)</label><input type="number" value={pageMargin} onChange={handleDimChange(setPageMargin)} className="w-full bg-transparent border-b border-swiss-gray focus:border-swiss-red rounded-none px-2 py-1.5 text-swiss-black font-mono outline-none transition-colors" /></div>
+                  <div><label className="text-[10px] text-swiss-gray uppercase font-bold block mb-1">Gap (mm)</label><input type="number" value={photoGap} onChange={handleDimChange(setPhotoGap)} className="w-full bg-transparent border-b border-swiss-gray focus:border-swiss-red rounded-none px-2 py-1.5 text-swiss-black font-mono outline-none transition-colors" /></div>
                   {paperSize === 'Custom' && (
                     <>
-                      <div><label className="text-[10px] text-swiss-gray uppercase font-bold block mb-1">Sheet Width</label><input type="number" value={paperWidth} onChange={handleDimChange(setPaperWidth)} className="w-full bg-transparent border-b border-swiss-gray focus:border-swiss-red rounded-none px-2 py-1.5 text-swiss-white font-mono outline-none transition-colors" /></div>
-                      <div><label className="text-[10px] text-swiss-gray uppercase font-bold block mb-1">Sheet Height</label><input type="number" value={paperHeight} onChange={handleDimChange(setPaperHeight)} className="w-full bg-transparent border-b border-swiss-gray focus:border-swiss-red rounded-none px-2 py-1.5 text-swiss-white font-mono outline-none transition-colors" /></div>
+                      <div><label className="text-[10px] text-swiss-gray uppercase font-bold block mb-1">Sheet Width</label><input type="number" value={paperWidth} onChange={handleDimChange(setPaperWidth)} className="w-full bg-transparent border-b border-swiss-gray focus:border-swiss-red rounded-none px-2 py-1.5 text-swiss-black font-mono outline-none transition-colors" /></div>
+                      <div><label className="text-[10px] text-swiss-gray uppercase font-bold block mb-1">Sheet Height</label><input type="number" value={paperHeight} onChange={handleDimChange(setPaperHeight)} className="w-full bg-transparent border-b border-swiss-gray focus:border-swiss-red rounded-none px-2 py-1.5 text-swiss-black font-mono outline-none transition-colors" /></div>
                     </>
                   )}
                </div>
             </div>
 
-            <div className="bg-neutral-200 p-4 overflow-auto flex justify-center shadow-inner min-h-[300px] border border-swiss-white/50 relative">
+            <div className="bg-neutral-200 p-4 overflow-auto flex justify-center shadow-inner min-h-[300px] border border-swiss-black/50 relative">
                <div className="absolute top-2 left-2 text-[10px] text-black/50 uppercase tracking-widest font-bold z-10">Preview Canvas</div>
                {printSheetImage ? <img src={printSheetImage} alt="Sheet" className="shadow-2xl border border-neutral-400 max-w-full h-auto object-contain" /> : <div className="text-neutral-500 m-auto font-mono uppercase text-xs tracking-widest">Generating...</div>}
             </div>
 
-            <div className="bg-swiss-black p-3 border border-swiss-gray text-center text-xs uppercase tracking-widest text-swiss-gray">Photos fit: <span className="text-swiss-red font-bold text-lg mx-2">{photosCount}</span> pcs</div>
+            <div className="bg-swiss-white p-3 border border-swiss-gray text-center text-xs uppercase tracking-widest text-swiss-gray">Photos fit: <span className="text-swiss-red font-bold text-lg mx-2">{photosCount}</span> pcs</div>
 
             <div className="space-y-2 sticky bottom-4">
-                <button onClick={() => handleDownload(printSheetImage, `print_sheet_${paperSize}.jpg`)} className="w-full py-4 bg-swiss-white text-swiss-black hover:bg-swiss-red hover:text-swiss-white font-bold uppercase tracking-[0.2em] border border-swiss-white shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-3">
+                <button onClick={() => handleDownload(printSheetImage, `print_sheet_${paperSize}.jpg`)} className="w-full py-4 bg-swiss-black text-swiss-white hover:bg-swiss-red hover:text-swiss-black font-bold uppercase tracking-[0.2em] border border-swiss-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-3">
                     <Download size={18} /> Download Sheet
                 </button>
             </div>

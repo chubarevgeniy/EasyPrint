@@ -7,9 +7,9 @@
 @layer base {
   body {
     font-family: 'JetBrains Mono', monospace;
-    background-color: #050505;
-    color: #F0F0F0;
-    background-image: radial-gradient(#333 1px, transparent 1px);
+    background-color: #F0F0F0;
+    color: #050505;
+    background-image: radial-gradient(#D4D4D4 1px, transparent 1px);
     background-size: 20px 20px;
   }
 }
@@ -21,14 +21,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #F0F0F0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  border: 1px solid #050505;
+  background: #737373;
+  border: 1px solid #F0F0F0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #F0F0F0;
+  background: #666666;
 }
